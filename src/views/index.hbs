@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="card-header bg-dark">
+    <h3 class="card-title text-white">
+      <i class="far fa-image"></i> Cargar Imagen
+    </h3>
+  </div>
+<!--  CARGAR IMAGEN -->
+  <div class="card-body">
+    <form action="/images" method="POST" enctype="multipart/form-data">
+
+      <div class="form-group">
+        <div class="input-group">
+          <div class="custom-file">
+            <input type="file" name="image" class="custom-file-input" id="inputGroupFile" aria-describedby="inputGroupFileAddon" required/>
+            <label class="custom-file-label" for="inputGroupFile">Buscar Imagen</label>
+          </div>
+        </div>
+      </div>
+       <!--TITULO IMAGE-->
+      <div class="form-group">
+        <input type="text" name="title" class="form-control" placeholder="Tutulo" required>
+      </div>
+      <!--  DESCRIPCION IMAGE-->
+      <div class="form-group">
+        <textarea name="description" rows="2" class="form-control" placeholder="Descripcion" required></textarea>
+      </div>
+      <!--  SUBIR -->
+
+      <div class="form-group mx-auto text-center">
+        <button class="btn btn-success ">
+          <i class="fa fa-upload"></i> Subir Imagen
+        </button>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+<!--ASIDE RECIENTE-->
+<div class="card mt-2">
+  <div class="card-header bg-dark text-white">
+    <h3><i class="far fa-images"></i> Recientes</h3>
+  </div>
+  <!-- DASBOARD IMAGE UPLOAD-->
+  <div class="card-body">
+    <!--div class="row"-->
+    <div class="col">
+      {{#each images}}
+      <!--col-md-4 text-center-->
+      <div class="col-md-12 text-center">
+        <a href="/images/{{ uniqueId  }}">
+          <img src="/public/upload/{{filename}}" alt="{{title}}" class="w-100 h-100 img-thumbnail">
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
